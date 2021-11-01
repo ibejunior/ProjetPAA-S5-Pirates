@@ -1,8 +1,9 @@
 
 public class Main {
 	public static void main(String[] args) {
-		Menus mP = new Menus();
-		mP.initialisations();
-		mP.gestionPirate();
+		Menus m = new Menus();
+		m.initialisations();
+		m.gestionPirate();
+		m.menuSuivant();
 	}
 }

@@ -62,13 +62,11 @@ public class Menus {
         		s2 = "" + s1.charAt(0);
         		p1 = distrib.cherchePirate(s2);
         		while(!distrib.getListePirates().contains(p1)) {
-       
         			System.out.println("ERREUR");
         			System.out.println("Veuillez donner le nom du pirate puis la liste des objets dans l'ordre de ses préférences");
         			System.out.println("Exemple : A 1 2 3");
         			s1 = sc.next();
         			p1 = distrib.cherchePirate(s1);
-        			
         		}
         		p1.initPref(n);
         		for(int i = 0; i < n; i++) {
@@ -78,18 +76,18 @@ public class Menus {
         		}
         		break;
             case 3 :
-        		/*for(int i = 0; i < n; i++) {
-        			
-        		}
-        		if() {
-        			
-        			menu = 86;
-        		}
-        		else 
-        			System.out.println("Vous passez au menu suivant");**/
+        		for(int i = 0; i < n; i++) {
+        			if(distrib.getListePirates().get(i).getPrefs().size() != n) {
+        				menu = 22;
+        			}
+        		} 
             default : 
         		System.out.println("La valeur donnée n'est pas adéquate");
             }
         }while(menu != 3);
+    }
+    
+    public void menuSuivant() {
+    	System.out.println("Vous passez au menu suivant");
     }
 }
