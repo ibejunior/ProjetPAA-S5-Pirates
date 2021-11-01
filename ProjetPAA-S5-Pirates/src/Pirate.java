@@ -16,8 +16,11 @@ public class Pirate {
 		this.nom = nom;
 	}
 	
-	public ArrayList<Objet> getPrefs(int n) {
+	public void initPref(int n) {
 		prefs = new ArrayList<Objet>(n);
+	}
+	
+	public ArrayList<Objet> getPrefs() {
 		return(prefs);
 	}
 }

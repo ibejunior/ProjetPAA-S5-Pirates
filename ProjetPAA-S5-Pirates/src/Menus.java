@@ -34,11 +34,12 @@ public class Menus {
         distrib.initPirates();
         distrib.initRelations();
         distrib.initObjets();
+        Scanner scCase = new Scanner(System.in);
         do {
             System.out.println("\t1) Ajouter une relation");
             System.out.println("\t2) Ajouter des préférences");
             System.out.println("\t3) Fin");
-            menu = sc.nextInt();
+            menu = scCase.nextInt();
             switch(menu) {
             case 1 :
         		System.out.println("Veuillez donner les deux pirates");
@@ -60,20 +61,20 @@ public class Menus {
         		s1 = sc.next();
         		s2 = "" + s1.charAt(0);
         		p1 = distrib.cherchePirate(s2);
-        		System.out.println(s2);
         		while(!distrib.getListePirates().contains(p1)) {
+       
         			System.out.println("ERREUR");
         			System.out.println("Veuillez donner le nom du pirate puis la liste des objets dans l'ordre de ses préférences");
         			System.out.println("Exemple : A 1 2 3");
         			s1 = sc.next();
-        			s2 = "" + s1.charAt(0);
-        			p1 = distrib.cherchePirate(s2);
+        			p1 = distrib.cherchePirate(s1);
+        			
         		}
-        		for(int i = 2; i < s1.length(); i += 2) {
-        			s2 = "" + s1.charAt(i);
-        			tmp = Integer.parseInt(s2);
-        			o = distrib.getListeObjets().get(tmp-1);
-        			p1.getPrefs(n).add(o);
+        		p1.initPref(n);
+        		for(int i = 0; i < n; i++) {
+        			tmp = sc.nextInt();
+        			o = distrib.getListeObjets().get(i);
+        			p1.getPrefs().add(o);
         		}
         		break;
             case 3 :
