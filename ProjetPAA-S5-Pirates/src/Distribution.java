@@ -47,9 +47,12 @@ public class Distribution {
     }
     
     public void afficherRelations() {
-    	 for (Map.Entry m : relations.entrySet()) {
-             System.out.println("ID: "+m.getKey()+", Nom: "+m.getValue());
-         }
+    	for (Pirate p : relations.keySet()) {
+	        System.out.println(" Liste " + p.getNom());
+	        for(int i = 0; i < relations.get(p).size();i++) {
+	        	System.out.println(" Element " + i + " : " + relations.get(p).get(i));
+	        }
+	    }
     }
 
     public Pirate cherchePirate(String p1) {

@@ -34,4 +34,7 @@ public class Pirate {
 	public Objet getObjet() {
 		return(this.butin);
 	}
+	public String toString() {
+		return this.nom;
+	}
 }
