@@ -3,9 +3,12 @@ import java.util.ArrayList;
 public class Pirate {
 	private String nom;
 	private ArrayList<Objet> prefs;
+	private Objet butin;
 	
 	public Pirate(String nom) {
 		this.nom = nom;
+		butin = null;
+		prefs = null;
 	}
 	
 	public String getNom() {
@@ -22,5 +25,13 @@ public class Pirate {
 	
 	public ArrayList<Objet> getPrefs() {
 		return(prefs);
+	}
+	
+	public void setObjet(Objet obj) {
+		this.butin = obj;
+	}
+	
+	public Objet getObjet() {
+		return(this.butin);
 	}
 }

@@ -69,4 +69,11 @@ public class Distribution {
         if(!relations.get(p2).contains(p1))
             relations.get(p2).add(p1);
     }
+    
+    public void solutionNaive() {
+    	ArrayList<Objet> listeObjetsAttribues = new ArrayList<Objet>(n);
+    	for(int i = 0; i < n; i++) {
+    		if()
+    	}
+    }
 }

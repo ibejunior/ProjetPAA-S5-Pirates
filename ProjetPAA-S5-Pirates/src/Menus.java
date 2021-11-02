@@ -96,27 +96,27 @@ public class Menus {
     
     public void menuSuivant() {
     	System.out.println("Vous passez au menu suivant");
-    	 int menuSuiv;
-         Scanner scSuiv = new Scanner(System.in);
-         do {
-             System.out.println("\t1) Echanger objets entre pirate");
-             System.out.println("\t2) Afficher le cout");
-             System.out.println("\t3) Fin");
-             menuSuiv = scSuiv.nextInt();
-             switch(menuSuiv) {
-             case 1:
-                 System.out.println("Selectionner 2 Pirates");
-                 break;
-             case 2:
-                 System.out.println("Cout");
-                 break;
-             case 3:
-                 System.out.println("FIN");
-                 break;
-             default :
-                 System.out.println("La valeur donnée n'est pas adéquate");
-                 break;
-             }
+    	int menuSuiv;
+        Scanner scSuiv = new Scanner(System.in);
+        do {
+        	System.out.println("\t1) Echanger objets entre pirate");
+        	System.out.println("\t2) Afficher le cout");
+        	System.out.println("\t3) Fin");
+        	menuSuiv = scSuiv.nextInt();
+        	switch(menuSuiv) {
+        	case 1:
+        		System.out.println("Selectionner 2 Pirates");
+        		break;
+        	case 2:
+        		System.out.println("Cout");
+        		break;
+        	case 3:
+        		System.out.println("FIN");
+        		break;
+        	default :
+        		System.out.println("La valeur donnée n'est pas adéquate");
+        		break;
+        	}
          }while(menuSuiv != 3);
-    }
+     }
 }
