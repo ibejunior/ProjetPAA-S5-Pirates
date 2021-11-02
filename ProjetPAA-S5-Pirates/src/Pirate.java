@@ -16,7 +16,7 @@ public class Pirate {
 		this.nom = nom;
 	}
 	
-	public void initPref(int n) {
+	public void initPrefs(int n) {
 		prefs = new ArrayList<Objet>(n);
 	}
 	

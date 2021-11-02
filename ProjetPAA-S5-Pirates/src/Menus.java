@@ -28,8 +28,8 @@ public class Menus {
         String s1, s2;
         Pirate p1,p2;
         Objet o;
-        int menu;
-        int tmp;
+        int menu, tmp;
+        
         distrib = new Distribution(n);
         distrib.initPirates();
         distrib.initRelations();
@@ -49,11 +49,14 @@ public class Menus {
         		p2 = distrib.cherchePirate(s2);
         		if (p1 == null)
         			System.out.println("Le pirate " + s1 + " n'existe pas");
-        		else if (p2 == null)
+        		if (p2 == null)
         			System.out.println("Le pirate " + s2 + " n'existe pas");
-        		else
-        			System.out.println("Les deux pirates donnés existent");
-        		//distrib.gestionRelations(p1, p2);
+        		else if(p1.getNom() == p2.getNom())
+        			System.out.println("Vous ne pouvez pas créer une relation entre " + p1.getNom() + " et " + p2.getNom());
+        		else {
+        			System.out.println("La relation entre " + p1.getNom() + " et " + p2.getNom() + " a été créée");
+        			distrib.gestionRelations(p1, p2);
+        		}
         		break;
             case 2 :
         		System.out.println("Veuillez donner le nom du pirate puis la liste des objets dans l'ordre de ses préférences");
@@ -63,12 +66,13 @@ public class Menus {
         		p1 = distrib.cherchePirate(s2);
         		while(!distrib.getListePirates().contains(p1)) {
         			System.out.println("ERREUR");
-        			System.out.println("Veuillez donner le nom du pirate puis la liste des objets dans l'ordre de ses préférences");
+        			System.out.println("Veuillez donner le nom du pirate puis la liste des objets dans l'ordre de ses préférences.\n"
+        					+ "Il est nécessaire que vous indiquiez précisément " + n + " objets");
         			System.out.println("Exemple : A 1 2 3");
         			s1 = sc.next();
         			p1 = distrib.cherchePirate(s1);
         		}
-        		p1.initPref(n);
+        		p1.initPrefs(n);
         		for(int i = 0; i < n; i++) {
         			tmp = sc.nextInt();
         			o = distrib.getListeObjets().get(i);
@@ -77,17 +81,42 @@ public class Menus {
         		break;
             case 3 :
         		for(int i = 0; i < n; i++) {
-        			if(distrib.getListePirates().get(i).getPrefs().size() != n) {
-        				menu = 22;
+        			if(distrib.getListePirates().get(i).getPrefs() == null) {
+        				System.out.println("Le Pirate " + distrib.getListePirates().get(i).getNom() + " n'a pas encore sa liste de préférences");
+        				menu = 2677;
         			}
-        		} 
+        		}
+        		break;
             default : 
         		System.out.println("La valeur donnée n'est pas adéquate");
+        		break;
             }
         }while(menu != 3);
     }
     
     public void menuSuivant() {
     	System.out.println("Vous passez au menu suivant");
+    	 int menuSuiv;
+         Scanner scSuiv = new Scanner(System.in);
+         do {
+             System.out.println("\t1) Echanger objets entre pirate");
+             System.out.println("\t2) Afficher le cout");
+             System.out.println("\t3) Fin");
+             menuSuiv = scSuiv.nextInt();
+             switch(menuSuiv) {
+             case 1:
+                 System.out.println("Selectionner 2 Pirates");
+                 break;
+             case 2:
+                 System.out.println("Cout");
+                 break;
+             case 3:
+                 System.out.println("FIN");
+                 break;
+             default :
+                 System.out.println("La valeur donnée n'est pas adéquate");
+                 break;
+             }
+         }while(menuSuiv != 3);
     }
 }
