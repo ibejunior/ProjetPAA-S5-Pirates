@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Distribution {
     private HashMap<Pirate, ArrayList<Pirate>> relations;
@@ -43,6 +44,12 @@ public class Distribution {
             ArrayList<Pirate> mauvaisesRelations = new ArrayList<Pirate>(n);
             relations.put(listePirates.get(i), mauvaisesRelations);
         }
+    }
+    
+    public void afficherRelations() {
+    	 for (Map.Entry m : relations.entrySet()) {
+             System.out.println("ID: "+m.getKey()+", Nom: "+m.getValue());
+         }
     }
 
     public Pirate cherchePirate(String p1) {

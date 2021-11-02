@@ -95,6 +95,7 @@ public class Menus {
     }
     
     public void menuSuivant() {
+    	distrib.afficherRelations();
     	System.out.println("Vous passez au menu suivant");
     	distrib.solutionNaive();
     	distrib.afficherObjPirates();
