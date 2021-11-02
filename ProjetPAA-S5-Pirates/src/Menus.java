@@ -75,7 +75,7 @@ public class Menus {
         		p1.initPrefs(n);
         		for(int i = 0; i < n; i++) {
         			tmp = sc.nextInt();
-        			o = distrib.getListeObjets().get(i);
+        			o = distrib.getListeObjets().get(tmp-1);
         			p1.getPrefs().add(o);
         		}
         		break;
@@ -96,8 +96,13 @@ public class Menus {
     
     public void menuSuivant() {
     	System.out.println("Vous passez au menu suivant");
+    	distrib.solutionNaive();
+    	distrib.afficherObjPirates();
     	int menuSuiv;
+    	String s1 , s2;
+    	Pirate p1 , p2;
         Scanner scSuiv = new Scanner(System.in);
+        Scanner scNouv = new Scanner(System.in);
         do {
         	System.out.println("\t1) Echanger objets entre pirate");
         	System.out.println("\t2) Afficher le cout");
@@ -106,6 +111,12 @@ public class Menus {
         	switch(menuSuiv) {
         	case 1:
         		System.out.println("Selectionner 2 Pirates");
+        		s1 = sc.next();
+        		s2 = sc.next();
+        		p1 = distrib.cherchePirate(s1);
+        		p2 = distrib.cherchePirate(s2);
+        		distrib.echangeObj(p1 , p2);
+        		distrib.afficherObjPirates();
         		break;
         	case 2:
         		System.out.println("Cout");

@@ -72,8 +72,30 @@ public class Distribution {
     
     public void solutionNaive() {
     	ArrayList<Objet> listeObjetsAttribues = new ArrayList<Objet>(n);
-    	for(int i = 0; i < n; i++) {
-    		if()
+    	System.out.println("Voici la solution naîve : ");
+    	for(int i=0 ; i<n ; i++) {
+    		for(int j=0 ; j<n ; j++) {
+    			if(!listeObjetsAttribues.contains(listePirates.get(i).getPrefs().get(j)) && listePirates.get(i).getObjet() == null) {
+        			listeObjetsAttribues.add(listePirates.get(i).getPrefs().get(j));
+        			listePirates.get(i).setObjet(listePirates.get(i).getPrefs().get(j));
+        		}
+    		}
     	}
+    }
+    
+    public void afficherObjPirates() {
+    	for (int i=0; i<n; i++) {
+			System.out.println(listePirates.get(i).getNom() + " : " + listePirates.get(i).getObjet().getNom());
+    	}
+    }
+    
+    public void echangeObj(Pirate p1 , Pirate p2) {
+    	Objet tmp = p2.getObjet();
+    	p2.setObjet(p1.getObjet());
+    	p1.setObjet(tmp);
+    }
+    
+    public void cout() {
+    	
     }
 }
