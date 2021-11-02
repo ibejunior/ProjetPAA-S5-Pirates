@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Distribution {
     private HashMap<Pirate, ArrayList<Pirate>> relations;
