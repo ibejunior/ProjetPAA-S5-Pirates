@@ -121,6 +121,7 @@ public class Menus {
         		break;
         	case 2:
         		System.out.println("Cout");
+        		System.out.println("Le cout est : " + distrib.cout());
         		break;
         	case 3:
         		System.out.println("FIN");

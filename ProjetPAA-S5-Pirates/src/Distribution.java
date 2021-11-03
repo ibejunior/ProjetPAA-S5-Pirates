@@ -104,7 +104,24 @@ public class Distribution {
     	p1.setObjet(tmp);
     }
     
-    public void cout() {
-    	
+    public int cout() {
+    	int index, cpt = 0;
+    	ArrayList<Objet> objets = new ArrayList<>(n);  
+    	boolean coutUnique = false;
+    	for(Pirate p : relations.keySet()) {
+    		objets.clear();
+    		coutUnique = true;
+    		index = p.getPrefs().indexOf(p.getObjet());
+    		for(int i = 0 ; i < index; i++) {
+    			objets.add(p.getPrefs().get(i));
+    		}
+    		for(int i = 0; i < relations.get(p).size(); i++) {
+    			if(objets.contains(relations.get(p).get(i).getObjet()) && coutUnique) {
+    				cpt++;
+    				coutUnique = false;
+    			}
+    		}
+    	}
+    	return cpt;
     }
 }
