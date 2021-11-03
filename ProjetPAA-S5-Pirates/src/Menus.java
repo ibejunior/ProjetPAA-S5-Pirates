@@ -1,16 +1,31 @@
 import java.util.Scanner;
 
+/**
+ * Classe qui permet de gérer l'affichage des différents menus
+ * et de récupérer les demandes à l'utilisateur à l'aide d'un Scanner
+ *
+ * @author El-Mougharti Hanafi
+ * @author Vallée Arthur
+ * @author Stefanos Alexandre
+ *
+ */
 public class Menus {
     private Scanner sc;
     private int n;
     private Distribution distrib;
 
+    /**
+     * Constructeur de la classe Menus
+     */
     public Menus() {
         this.distrib = null;
         this.n = 0;
         sc = new Scanner(System.in);
     }
 
+    /**
+     * Premier Menu permettant à l'utilisateur le nombre de Pirates
+     */
     public void initialisations() {
         System.out.println("wsh bien ou quoi ?");
         System.out.println("Combien de pirates constituent l'équipage ?");
@@ -23,6 +38,11 @@ public class Menus {
         System.out.println("L'équipage est composé de " + n + " pirates et ils ont trouvé " + n + " objets.");
     }
 
+    /**
+     * Second Menu permettant à l'utilisateur d'ajouter une relation
+     * entre 2 pirates et d'ajouter des préférences d'Objets d'un Pirate.
+     * Lorsque l'utilisateur a fini, il peut passer au menu Suivant
+     */
     public void gestionPirate() {
         System.out.println("Veuillez choisir une option :");
         String s1, s2;
@@ -38,7 +58,7 @@ public class Menus {
         do {
             System.out.println("\t1) Ajouter une relation");
             System.out.println("\t2) Ajouter des préférences");
-            System.out.println("\t3) Fin");
+            System.out.println("\t3) Menu Suivant");
             menu = scCase.nextInt();
             switch(menu) {
             case 1 :
@@ -93,7 +113,12 @@ public class Menus {
             }
         }while(menu != 3);
     }
-    
+   
+    /**
+     * Troisième et dernier Menu permettant à l'utilisateur
+     * d'échanger les objets entre pirates et d'afficher
+     * le coût
+     */
     public void menuSuivant() {
     	distrib.afficherRelations();
     	System.out.println("Vous passez au menu suivant");

@@ -18,7 +18,7 @@ public class Pirate {
 	/**
 	 * Constructeur de la classe Pirate
 	 * 
-	 * @param nom	le nom du Pirate définit
+	 * @param nom	le nom du Pirate défini
 	 */
 	public Pirate(String nom) {
 		this.nom = nom;

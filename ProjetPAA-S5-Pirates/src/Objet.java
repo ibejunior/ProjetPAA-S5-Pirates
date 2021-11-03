@@ -14,7 +14,7 @@ public class Objet {
 	/**
 	 * Constructeur de la classe Objet
 	 * 
-	 * @param nom	le nom de l'Objet définit
+	 * @param nom	le nom de l'Objet défini
 	 */
 	public Objet(String nom) {
 		this.nom = nom;
