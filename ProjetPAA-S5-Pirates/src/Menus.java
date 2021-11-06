@@ -27,7 +27,7 @@ public class Menus {
      * Premier Menu permettant à l'utilisateur le nombre de Pirates
      */
     public void initialisations() {
-        System.out.println("wsh bien ou quoi ?");
+        System.out.println("Bienvenue !");
         System.out.println("Combien de pirates constituent l'équipage ?");
         n = sc.nextInt();
         while(n < 2 || n > 26) {
@@ -145,8 +145,8 @@ public class Menus {
         		distrib.afficherObjPirates();
         		break;
         	case 2:
-        		System.out.println("Cout");
-        		System.out.println("Le cout est : " + distrib.cout());
+        		System.out.println("Coût :");
+        		System.out.println("Le coût est : " + distrib.cout());
         		break;
         	case 3:
         		System.out.println("FIN");
