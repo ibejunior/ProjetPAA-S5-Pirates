@@ -1,4 +1,5 @@
 package etape02;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -129,7 +130,6 @@ public class Menus {
     	String s1 , s2;
     	Pirate p1 , p2;
         Scanner scSuiv = new Scanner(System.in);
-        Scanner scNouv = new Scanner(System.in);
         do {
         	System.out.println("\t1) Echanger objets entre pirate");
         	System.out.println("\t2) Afficher le cout");
@@ -150,12 +150,28 @@ public class Menus {
         		System.out.println("Le coût est : " + distrib.cout());
         		break;
         	case 3:
-        		System.out.println("FIN");
+        		System.out.println("Fin.");
         		break;
         	default :
         		System.out.println("La valeur donnée n'est pas adéquate");
         		break;
         	}
          }while(menuSuiv != 3);
+        //scSuiv.close();
      }
+    
+    public void menuSuivant2() throws IOException {
+    	System.out.println("T'as un fichier txt bg ? Si oui, tapez 1, sinon tqt");
+    	int txt;
+    	txt = sc.nextInt();
+    	while(txt != 1 && txt != 2) {
+    		System.out.println("Pas le bon num bg");
+    		txt = sc.nextInt();
+    	}
+    	if(txt == 1)
+    		System.out.println("Bah passes-ton fichier nn ?");
+    	else if(txt == 2) {
+        	distrib.initPirates2();
+    	}
+    }
 }

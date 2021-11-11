@@ -1,4 +1,10 @@
 package etape02;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -55,6 +61,29 @@ public class Distribution {
             Pirate pirate = new Pirate(convertedChar);
             listePirates.add(pirate);
         }
+    }
+    
+    public void initPirates2() throws IOException {
+    	File f = new File("src" + File.separator + "etape02" + File.separator + "listePirates.txt");
+    	BufferedWriter bW = new BufferedWriter(new FileWriter(f));
+		System.out.println("Création d'un fichier");
+    	f.createNewFile();
+    	System.out.println("Fichier créé");
+    	if(f.canRead() && f.canWrite())
+    		System.out.println("Tout va bien youpi");
+    	else
+    		System.out.println("pas d'po tu peux po");
+    	bW.write("A B C D");
+    	bW.flush();
+    	System.out.println("Lecture du fichier :");
+    	FileReader fReader = new FileReader("src" + File.separator + "etape02" + File.separator + "listePirates.txt");
+    	BufferedReader bR = new BufferedReader(fReader);
+    	String ligne = null, str = null;
+    	while((ligne = bR.readLine()) != null)
+    		str = ligne; 
+    	System.out.println(str);
+    	bW.close();
+    	bR.close();
     }
     
     /**
