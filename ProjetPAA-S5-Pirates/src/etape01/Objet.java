@@ -1,3 +1,4 @@
+package etape01;
 /**
  * 
  * Classe qui permet de définir un objet Objet 
